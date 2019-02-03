@@ -1,0 +1,51 @@
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+	<title>Автосалон: Сервис</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	<script src="~/Scripts/mysearch.js"></script>
+</head>
+<body>
+	@{
+		ViewBag.Title = "Services";
+	}
+	<div class="container">
+		<h3>Прайс дополнительных услуг</h3>
+
+		@model IEnumerable<WebProject.Models.AbstractModel>
+
+		<input class=form-control id=mysearch onkeyup=mySearch() placeholder="Поиск" type=text>
+
+		<div class="table-responsive">
+			<table class="table-bordered" id=mytable>
+				<thead>
+					<tr>
+						<th scope="col">Услуга</th>
+						<th scope="col">Стоимость</th>
+						<th scope="col">Скидка</th>
+						<th scope="col">Изменить</th>
+						<th scope="col">Удалить</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (WebProject.Models.Service m in Model)
+					{
+						<tr>
+							<th scope="row">@m.Name</th>
+							<td>@m.Price </td>
+							<td>@m.Discount %</td>
+							<td><a href="~/Service/EditService/@m.Id"> Изменить</a></td>
+							<td><a href="~/Service/DeleteService/@m.Id"> Удалить</a></td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+		<input type="button" value="Добавить" onClick='location.href="CreateService"'>
+	</div><br>
+</body>
+</html>

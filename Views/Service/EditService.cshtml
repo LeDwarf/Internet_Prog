@@ -1,0 +1,56 @@
+﻿<html>
+<head>
+	<title>Редактировать сервис</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+</head>
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<body>
+
+	@{
+		ViewBag.Title = "EditService";
+	}
+
+
+	@model WebProject.Models.Service
+
+	<div class="container">
+		<h3>Редактировать услугу</h3>
+		<h4>Услуга № @Model.Id</h4>
+		@using (Html.BeginForm("EditService", "Service", FormMethod.Post))
+		{
+
+			@Html.HiddenFor(m => m.Id)
+			<p>
+				@Html.LabelFor(model => model.Name, "Название")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Name)
+				@Html.ValidationMessageFor(model => model.Name)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Price, "Стоимость")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Price)
+				@Html.ValidationMessageFor(model => model.Price)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Discount, "Скидка")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Discount)
+				@Html.ValidationMessageFor(model => model.Discount)
+			</p>
+			<p><input type="submit" value="Отправить" /></p>
+
+		}
+	</div>
+</body>
+</html>

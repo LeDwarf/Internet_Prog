@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>2</Id>
+  <Name>Замена свечей</Name>
+  <Price>2000</Price>
+  <Discount>50</Discount>
+</Service>

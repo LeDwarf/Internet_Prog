@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+	<title>Добавить авто</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+</head>
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<body>
+	<div class="container">
+
+		@{
+			ViewBag.Title = "CreateCar";
+		}
+
+
+		@model WebProject.Models.Car
+
+		<h3>Добавить авто</h3>
+
+		@using (Html.BeginForm())
+		{
+			<p>
+				@Html.LabelFor(model => model.Name, "Название")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Name)
+				@Html.ValidationMessageFor(model => model.Name)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Mileage, "Пробег")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Mileage)
+				@Html.ValidationMessageFor(model => model.Mileage)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Transmission, "Тип КПП")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Transmission)
+				@Html.ValidationMessageFor(model => model.Transmission)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Engine, "Двигатель")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Engine)
+				@Html.ValidationMessageFor(model => model.Engine)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Psngr_cap, "Число мест")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Psngr_cap)
+				@Html.ValidationMessageFor(model => model.Psngr_cap)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Price, "Стоимость")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Price)
+				@Html.ValidationMessageFor(model => model.Price)
+			</p>
+			<p>
+				@Html.LabelFor(model => model.Discount, "Скидка")
+			</p>
+			<p>
+				@Html.EditorFor(model => model.Discount)
+				@Html.ValidationMessageFor(model => model.Discount)
+			</p>
+			<input type="submit" value="Добавить" />
+		}
+	</div>
+</body>
+</html>
